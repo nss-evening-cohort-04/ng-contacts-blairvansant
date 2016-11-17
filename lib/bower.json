@@ -1,12 +1,12 @@
 {
-  "name": "angular-todo",
+  "name": "ng-contacts",
   "description": "",
   "main": "index.js",
   "authors": [
     "Blair Van Sant <blairbot@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/zoeames/angular-todo",
+  "homepage": "https://github.com/blairvansant/ng-contacts",
   "ignore": [
     "**/.*",
     "node_modules",
