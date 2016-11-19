@@ -24,7 +24,7 @@ app.controller("contactCtrl",
 		};
 		$scope.submitNewContact = function(){
 			console.log("submit button");
-			contactFactory.showContacts($scope.newContact).then(function(){
+			contactFactory.postContacts($scope.newContact).then(function(){
 				getContacts();
 				$scope.newContact= {};
 				$scope.showContactView = true;

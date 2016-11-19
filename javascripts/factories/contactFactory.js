@@ -17,7 +17,7 @@ app.factory("contactFactory", function($q, $http, FIREBASE_CONFIG){
 			});
 		});
 	};
-		 var showNewContacts = function(newContact){
+		 var postContacts = function(newContact){
 		 	return $q((resolve,reject)=>{
 		 		$http.post(`${FIREBASE_CONFIG.databaseURL}/contacts.json`, JSON.stringify({
 		 			firstName:newContact.firstName,
@@ -34,7 +34,7 @@ app.factory("contactFactory", function($q, $http, FIREBASE_CONFIG){
         });
 		 	});
 		 };
-		 return{getContactFB:getContactFB, showNewContacts}
+		 return{getContactFB:getContactFB, postContacts}
 });
 
 
