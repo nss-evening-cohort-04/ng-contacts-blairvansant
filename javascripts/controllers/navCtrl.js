@@ -1,5 +1,16 @@
-"use strict"
+"use strict";
 
-contact.controller("navCtrl", function($scope){
-	$scope.navContacts =[];
-})
+app.controller("NavCtrl", function($scope){
+
+	$scope.navLinks = [{title:"menu"},{title:"home"}];
+
+	// $scope.navHomeLink = function(){
+	// 	console.log("home brand clicked", title);
+	// };
+	// $scope.navLinkClick = function(){
+	// 	console.log("nav clicked", linkTwo);
+	// };
+
+
+});
+

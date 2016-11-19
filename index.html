@@ -3,27 +3,72 @@
 <head>
 	<title>Angular Contacts</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" type="text/css" href="/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
   <meta charset="utf-8">
 <body ng-app="ContactsApp">
 
-	<!--Login area-->
-		<div>
-		
+		<nav class="navbar navbar-default" ng-controller="NavCtrl">
+		<div class="navbar-header">
+			<a href="#" title="" class="navbar-brand" ng-click="navHomeLink()">Contact App</a>
 		</div>
-
-	<!--Contact viewing area-->
-		<div>
-		
+		<div class="right-links">
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right" ng-repeat="navLink in navLinks">
+					<li><a href="#" ng-click="navLinkClick()">{{navLink.title}}</a></li>
+				</ul>
+			</div>
 		</div>
+	</nav>
 
-	<!--Add new contact-->
-		<div>
-		
+	<div ng-controller="contactCtrl">
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3 top-buttons">
+				<button class="btn btn-large col-sm-6 btn-primary" ng-click="allContactView()">All Contacts</button>
+				<button class="btn btn-large col-sm-6 btn-success" ng-click="addContactView()">Add New Contact</button>
+			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-1">
+				<div ng-show="showListView">
+					<h3>My Contacts</h3>
+					<div class="container" >
+						<div class="contact_container" id="label">
+							<div class="firstName">First Name</div>
+							<div class="LastName">Last Name</div>
+							<div class="email">email</div>
+							<div class="telNumber">Telephone Number</div>
+						</div>
+					</div>
+					<div class="container">
+						<div class="contact_container" ng-repeat="contact in contacts">
+							<div class="name">{{contact.firstName}}</div>
+							<div class="phone">{{contact.last.Name}}</div>
+							<div class="address">{{contact.email}}</div>
+							<div class="email">{{contact.telNumber}}</div>
+							<div class="editDeleteButton">
+								<button class="edit btn btn-warning" ng-click="editContacts()"><i class="material-icons">edit</i></button>
+								<button class="delete btn btn-danger" ng-click="deleteContacts()"><i class="material-icons">delete</i></button>
+							</div>
+						</div>
+					</div>
+				</div>
 
+				<div id="form-container" ng-show="!showListView">
+					<h3>Add Contact</h3>
+					<form>
+						<input class="form-control" type="text" id="firstName" placeholder="First Name" ng-model="newContact.firstName">
+					    <input class="form-control" type="text" id="LastName" placeholder="Last Name" ng-model="newContact.LastName">
+					    <input class="form-control" type="text" id="email" placeholder="Email" ng-model="newContact.email">
+					    <input class="form-control" type="text" id="telNumber" placeholder="Telephone Number" ng-model="newContact.telNumber">
+					    <button type="submit" class="btn btn-success" id="submit-contact" ng-click="submitNewContact()">Add New Contact</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
   <script type="text/javascript" src="/lib/bower_components/jquery/dist/jquery.min.js"></script>
