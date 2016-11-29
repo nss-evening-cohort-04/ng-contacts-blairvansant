@@ -2,15 +2,20 @@
 
 app.controller("NavCtrl", function($scope){
 
-	$scope.navLinks = [{title:"menu"},{title:"home"}];
+	$scope.navLinks = [
+		{
+			title:"Logout",
+			url:"#/logout"
+		},
+		{
+			title: "Add New Contact",
+			url: "#/contacts/add"
+		},
+		{	
+			title: "View All Contacts",
+			url: "#/contacts/list"
 
-	// $scope.navHomeLink = function(){
-	// 	console.log("home brand clicked", title);
-	// };
-	// $scope.navLinkClick = function(){
-	// 	console.log("nav clicked", linkTwo);
-	// };
-
-
+		}	
+	];
 });
 
