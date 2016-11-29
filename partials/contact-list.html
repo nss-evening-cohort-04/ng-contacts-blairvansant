@@ -1,0 +1,36 @@
+
+<div class="row">
+	<div class="col-xs-6 col-xs-offset-3">
+		<div class="input-group">
+			<span class="input-group-btn">
+				<button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+			</span>
+			<input type="text" class="form-control" placeholder="Search for ..." ng-model="searchText">
+		</div>
+	</div>
+</div>
+		
+<h3>List View of All My Contacts</h3>
+<!-- <div class="container" >
+	<div class="contact_container" id="label">
+		<div class="firstName">First Name</div>
+		<div class="lastName">Last Name</div>
+		<div class="email">Email</div>
+		<div class="telNumber">Telephone Number</div>
+	</div>
+</div> -->
+
+<div class="container">
+	<div class="contact_container" ng-repeat="contact in contacts | filter: searchText">
+		<div class="name">
+			<a href="#/contacts/editView/{{contact.id}}">{{contact.firstName}}</a>
+		</div>
+		<div class="phone">{{contact.lastName}}</div>
+		<div class="address">{{contact.email}}</div>
+		<div class="email">{{contact.telNumber}}</div>
+		<div class="editDeleteButton">
+		
+			<button class="delete btn btn-danger" ng-click="deleteContact(contact.id)"><i class="material-icons">delete</i></button>
+		</div>
+	</div>
+</div>

@@ -3,25 +3,30 @@
 <head>
 	<title>Angular Contacts</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" type="text/css" href="/lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles/main.css">
+
 </head>
   <meta charset="utf-8">
 <body ng-app="ContactsApp">
+	<nav class="navbar navbar-default" ng-controller="NavCtrl">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">Contact App</a>
+				</div>
 
-	<!--Login area-->
-		<div>
-		
-		</div>
+				<div class="right-links">
+					<div class="collapse navbar-collapse">
+						<ul class="nav navbar-nav navbar-right" ng-repeat="navLink in navLinks">
+							<li><a href="{{navLink.url}}">{{navLink.title}}</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
 
-	<!--Contact viewing area-->
-		<div>
-		
-		</div>
-
-	<!--Add new contact-->
-		<div>
-		
+		<div class="row">
+			<h1>My Contacts</h1>
+			<div class="col-sm-6 col-sm-offset-3" ng-view></div>
 		</div>
 
 
@@ -29,7 +34,15 @@
   <script type="text/javascript" src="/lib/bower_components/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/lib/bower_components/angular/angular.min.js"></script>
-  <script type="text/javascript" src="javascripts/main.js"></script>
-
+  <script type="text/javascript" src="/lib/bower_components/angular-route/angular-route.min.js"></script> 
+  <script type="text/javascript" src="javascripts/app.js"></script>
+  <script type="text/javascript" src="javascripts/appConstants.js"></script>
+  <script type="text/javascript" src="javascripts/appConfig.js"></script>
+  <script type="text/javascript" src="javascripts/factories/contactFactory.js"></script>
+  <script type="text/javascript" src="javascripts/controllers/navCtrl.js"></script>
+  <script type="text/javascript" src="javascripts/controllers/addCtrl.js"></script>
+  <script type="text/javascript" src="javascripts/controllers/editCtrl.js"></script>
+  <script type="text/javascript" src="javascripts/controllers/listCtrl.js"></script>
+  <script type="text/javascript" src="javascripts/controllers/viewCtrl.js"></script>
 </body>
 </html>
